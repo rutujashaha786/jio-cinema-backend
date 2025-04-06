@@ -32,7 +32,7 @@ async function emailService(templatePath, receiverEmail, toReplaceObject){
         const msg = {
           to: receiverEmail,
           from: 'rutujashaha786@gmail.com', // verified sender
-          subject: 'Jio-Cinema: Reset password OTP',
+          subject: 'Stream-Scene: Reset password OTP',
           text: "", //fallback to old HTML
           html: content, //HTML content in string format
         }
