@@ -47,6 +47,12 @@ app.use("/api/user", UserRouter);
 app.use("/api/video", VideoRouter);
 app.use("/api/payment", PaymentRouter);
 
-app.listen(3005, function() {
-    console.log("Server is running on port 3005");
+app.use("/", function(req, res){
+    console.log("Thank you for making a request");
+    res.status(200).send("Hello from server");
+})
+
+const PORT = process.env.PORT || 3005;
+app.listen(PORT, function() {
+    console.log(`Server is running on port ${PORT}`);
 })
