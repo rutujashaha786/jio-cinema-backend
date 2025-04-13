@@ -35,7 +35,6 @@ async function signupHandler(req, res){
             path: "/",
             sameSite: "None",   //allows browser to store cookies for cross origin 
             secure: true,
-            domain: ".streamscene.stream",
         })
 
         return res.status(201).json({
@@ -81,7 +80,6 @@ async function loginHandler(req, res){
             path: "/",
             sameSite: "None",   //allows browser to store cookies for cross origin 
             secure: true,
-            domain: ".streamscene.stream",
         })
 
         res.status(200).json({
@@ -237,7 +235,6 @@ async function logoutController(req, res) {
             path: "/",
             sameSite: "None",   //allows browser to store cookies for cross origin 
             secure: true,
-            domain: ".streamscene.stream",
         });
     
         res.status(200).json({
