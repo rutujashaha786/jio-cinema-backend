@@ -33,7 +33,7 @@ async function signupHandler(req, res){
             maxAge: 1000 * 60 * 60 * 24,
             httpOnly: true,
             path: "/",
-            sameSite: "Lax",   //allows browser to store cookies for cross origin 
+            sameSite: "None",   //allows browser to store cookies for cross origin 
             secure: true,
             domain: ".streamscene.stream",
         })
@@ -79,7 +79,7 @@ async function loginHandler(req, res){
             maxAge: 1000 * 60 * 60 * 24,
             httpOnly: true,
             path: "/",
-            sameSite: "Lax",   //allows browser to store cookies for cross origin 
+            sameSite: "None",   //allows browser to store cookies for cross origin 
             secure: true,
             domain: ".streamscene.stream",
         })
@@ -235,7 +235,7 @@ async function logoutController(req, res) {
         res.clearCookie("jwt", {
             httpOnly: true,
             path: "/",
-            sameSite: "Lax",   //allows browser to store cookies for cross origin 
+            sameSite: "None",   //allows browser to store cookies for cross origin 
             secure: true,
             domain: ".streamscene.stream",
         });
