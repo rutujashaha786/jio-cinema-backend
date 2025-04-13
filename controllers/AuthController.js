@@ -33,6 +33,8 @@ async function signupHandler(req, res){
             maxAge: 1000 * 60 * 60 * 24,
             httpOnly: true,
             path: "/",
+            sameSite: "None",   //allows browser to store cookies for cross origin 
+            secure: true,
         })
 
         return res.status(201).json({
