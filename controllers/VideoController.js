@@ -91,6 +91,8 @@ const getVideoThumbnail = async (req, res) => {
     const videoPath = path.join(__dirname, "..", "videos", `${videoId}.mp4`);
     const thumbnailPath = path.join(__dirname, "..", "thumbnails", `${videoId}.jpg`);
 
+    res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
+
     // Generate thumbnail if it doesn't exist
     if (!fs.existsSync(thumbnailPath)) {
         ffmpeg(videoPath)
