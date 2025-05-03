@@ -62,6 +62,7 @@ const getVideoStream = async (req, res) => {
             "Accept-Ranges": "bytes",
             "Content-Length": end - start + 1,
             "Content-Type": "video/mp4",
+            "Cross-Origin-Resource-Policy": "cross-origin",
         };
 
         // HTTP Status 206 for Partial Content
