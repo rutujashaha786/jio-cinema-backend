@@ -54,6 +54,12 @@ const getVideoStream = async (req, res) => {
         // Parse Range
         const CHUNK_SIZE = 0.5 * 1024 * 1024; // Half megabyte
         let start = Number(range.replace(/\D/g, ""));
+
+        // Handle Safari's small byte range request (e.g. bytes=0-1)
+        if (start < 2) {
+            start = 0;
+        }
+        
         let end = Math.min(start + CHUNK_SIZE, videoSize - 1);
 
         // Create headers
