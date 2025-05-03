@@ -54,26 +54,14 @@ const getVideoStream = async (req, res) => {
         // Parse Range
         const CHUNK_SIZE = 0.5 * 1024 * 1024; // Half megabyte
         let start = Number(range.replace(/\D/g, ""));
-        // Safari probe handling: If exact match for "bytes=0-1", respect it
-        let end;
-        if (range === "bytes=0-1") {
-            start = 0;
-            end = 1;
-        } else {
-            end = Math.min(start + CHUNK_SIZE - 1, videoSize - 1);
-        }
-        // let end = Math.min(start + CHUNK_SIZE, videoSize - 1);
+        let end = Math.min(start + CHUNK_SIZE, videoSize - 1);
 
         // Create headers
         const headers = {
             "Content-Range": `bytes ${start}-${end}/${videoSize}`,
             "Accept-Ranges": "bytes",
             "Content-Length": end - start + 1,
-            "Content-Type": "video/mp4",
-            "Cross-Origin-Resource-Policy": "cross-origin",
-            "Access-Control-Allow-Origin": req.headers.origin || "*",
-            "Access-Control-Allow-Credentials": "true",
-            "Access-Control-Expose-Headers": "Content-Range, Accept-Ranges",
+            "Content-Type": "video/mp4"
         };
 
         // HTTP Status 206 for Partial Content
